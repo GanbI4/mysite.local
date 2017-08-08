@@ -4,11 +4,10 @@
     $s .= PATH_SEPARATOR.'application/classes';
     $s .= PATH_SEPARATOR.'application/controllers';
     $s .= PATH_SEPARATOR.'application/models';
-    $s .= PATH_SEPARATOR.'application/views';
+//    $s .= PATH_SEPARATOR.'application/views';
     set_include_path(get_include_path().$s);
     spl_autoload_extensions('.php');
     spl_autoload_register();
-
     try
     {
         Route::register('/', function() { 
@@ -28,6 +27,7 @@
         Route::register('/404', function() { 
             controller_main::bad_action(); 
         });
+
 
         Route::start();
 

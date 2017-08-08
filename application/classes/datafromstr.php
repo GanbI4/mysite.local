@@ -1,5 +1,5 @@
 <?php
-class Data_from_STR
+class DataFromStr
 {
     public $controller;
     public $action;

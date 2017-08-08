@@ -1,10 +1,6 @@
 <?php
-
-
-
 class Model_About extends Model
 {
-	
 	public function get_data()
 	{	
         $id = 1; // можно сделать вторую таблицу в БД и запрос SELECT в SELECT, 
@@ -13,6 +9,5 @@ class Model_About extends Model
         return $m->getContacts(htmlspecialchars($id));
 
 	}
-
 }
 ?>

@@ -8,39 +8,38 @@
 
 class Route
 {
-    static $list_of_param = Array();
+    private static $list_of_param = Array();
     
-    static function register($key, $func)
+    public static function register($key, $func)
     {
-        self::$list_of_param[] = new Data_from_STR($key, $func);
+        self::$list_of_param[] = new DataFromStr($key, $func);
     }
     
-	static function start()
+	public static function start()
 	{
 			// контроллер и действие по умолчанию
-        $dataURL = new Data_from_URL($_SERVER['REQUEST_URI']);
+        $dataurl = new DataFromUrl($_SERVER['REQUEST_URI']);
 
-        foreach (self::$list_of_param as $data_fromSTR)
-            if (($data_fromSTR->controller == $dataURL->controller_name) && 
-                            ($data_fromSTR->is_param == isset($dataURL->param)))
-                if ($data_fromSTR->type_param == $dataURL->type_param)
-                    $action = $data_fromSTR->action;
+        foreach (self::$list_of_param as $datastr)
+            if (($datastr->controller == $dataurl->controller_name) && 
+                            ($datastr->is_param == isset($dataurl->param)))
+                if ($datastr->type_param == $dataurl->type_param)
+                    $action = $datastr->action;
                 else
                 {
         			throw new Exception('Ошибка в параметре!!!');
 		        	exit;
                 }
         if (isset($action))
-    		$action($dataURL->param);
+    		$action($dataurl->param);
     	else
         {
         	throw new Exception('Отсутствует метод');
 		    exit;
         }    	
-	
 	}
 	
-	static function Error404()
+	public static function error404()
 	{
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');

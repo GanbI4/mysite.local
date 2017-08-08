@@ -2,15 +2,15 @@
 
 class Controller {
 	
-	static public $model;
-	static public $view;
+	public static $model;
+	public static $view;
 	
-	function __construct()
+	public function __construct()
 	{
 		self::$view = new View();
 	}
 	
 	// действие (action), вызываемое по умолчанию
-	function action_index($params =''){}
+	public function actionIndex($params =''){}
 }
 ?>

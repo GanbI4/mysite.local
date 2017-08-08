@@ -1,20 +1,18 @@
 <?php
-class Data_from_URL
+class DataFromUrl
 {
     public $controller_name;
     public $param = null;
     public $type_param = null;
-    
     private $preg_str = '/^\d*$/';
 
-    public function __construct($str){
+    public function __construct($str)
+    {
 		$routes = explode('/', $str);
 		if ( !empty($routes[1]) )
 			$this->controller_name = $routes[1];
 		else	
-{
 		    $this->controller_name = 'main';
-		    }
 
 		if ( !empty($routes[2]) )
 		{

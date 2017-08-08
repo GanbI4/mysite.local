@@ -2,34 +2,33 @@
 
 class Controller_Main extends Controller
 {
-
-	function action_index($params='')
+	public function actionIndex($params='')
 	{	
 		Controller::$view->generate('main_view.php', 'template_view.php', $params);
 	}
 	
-    static function indexAction()
+    public static function indexAction()
     {
         $tmp = new self();
-        $tmp->action_index();
+        $tmp->actionIndex();
     }
 
-    static function aboutAction()
+    public static function aboutAction()
     {
         $tmp = new Controller_About();
-        $tmp->action_index();
+        $tmp->actionIndex();
     }
 
-    static function bad_action()
+    public static function bad_Action()
     {
         $tmp = new Controller_404();
-        $tmp->action_index();
+        $tmp->actionIndex();
     }
 
-	static function aboutDetailsAction($about)
+	public static function aboutDetailsAction($about)
 	{
         $tmp = new Controller_About();
-        $tmp->action_index($about);
+        $tmp->actionIndex($about);
 	} 
 
 }
