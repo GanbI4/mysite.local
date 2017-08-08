@@ -2,12 +2,12 @@
 
 class Controller {
 	
-	public $model;
-	public $view;
+	static public $model;
+	static public $view;
 	
 	function __construct()
 	{
-		$this->view = new View();
+		self::$view = new View();
 	}
 	
 	// действие (action), вызываемое по умолчанию

@@ -5,14 +5,14 @@ class Controller_About extends Controller
 
 	function __construct()
 	{
-		$this->model = new Model_About();
-		$this->view = new View();
+		self::$model = new Model_About();
+		self::$view = new View();
 	}
 	
 	function action_index($params='')
 	{
-		$data = $this->model->get_data();		
-		$this->view->generate('about_view.php', 'template_view.php', $params, $data);
+		$data = Controller::$model->get_data();		
+		Controller::$view->generate('about_view.php', 'template_view.php', $params, $data);
 	}
 }
 ?>
