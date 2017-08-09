@@ -24,6 +24,10 @@
             controller_main::aboutDetailsAction($news_id); 
         });
 
+        Route::register('/about/such/long/url/with/many/slashes/post/{%d}', function($news_id) { 
+            controller_main::aboutDetailsAction($news_id); 
+        });
+
         Route::register('/404', function() { 
             controller_main::bad_action(); 
         });

@@ -25,11 +25,11 @@ class Route
                             ($datastr->is_param == isset($dataurl->param)))
                 if ($datastr->type_param == $dataurl->type_param)
                     $action = $datastr->action;
-                else
-                {
+                else{
         			throw new Exception('Ошибка в параметре!!!');
 		        	exit;
                 }
+
         if (isset($action))
     		$action($dataurl->param);
     	else

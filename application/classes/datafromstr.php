@@ -16,7 +16,7 @@ class DataFromStr
 		    $this->controller = 'main';	
 
 		$this->action = $action;
-		if ( !empty($routes[2]) )
+		if ((count($routes) > 2) && !empty($routes[count($routes)-1]) )
 		{
 			$this->is_param = true;
 		    $this->type_param = $this->getTypeParam();

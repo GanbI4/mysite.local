@@ -14,9 +14,9 @@ class DataFromUrl
 		else	
 		    $this->controller_name = 'main';
 
-		if ( !empty($routes[2]) )
+		if ((count($routes) > 2) && !empty($routes[count($routes)-1]))
 		{
-			$this->param = $routes[2];
+			$this->param = $routes[count($routes)-1];
 		    $this->type_param = $this->getType($this->param);
 		    $this->is_param = true;
 		}    
