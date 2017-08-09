@@ -3,7 +3,7 @@
 
     use application\core as Core;
 
-    class Model_About extends Core\Model
+    class ModelAbout extends Core\Model
     {
         public function get_data()
         {	

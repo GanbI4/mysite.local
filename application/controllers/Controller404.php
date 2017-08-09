@@ -3,7 +3,7 @@
 
     use application\core\Controller as Controller;
  
-    class Controller_404 extends Controller
+    class Controller404 extends Controller
     {
         function actionIndex($pamams = '', $params2 = '')
         {

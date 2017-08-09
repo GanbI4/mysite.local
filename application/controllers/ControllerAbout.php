@@ -3,14 +3,14 @@
     namespace application\controllers;
 
     use application\core\Controller as Controller;
-    use application\models\Model_About as Model_About;
+    use application\models\ModelAbout as ModelAbout;
     use application\core\View as View;
 
-    class Controller_About extends Controller
+    class ControllerAbout extends Controller
     {
 	    function __construct()
 	    {
-		    self::$model = new Model_About();
+		    self::$model = new ModelAbout();
 		    self::$view = new View();
 	    }
 	

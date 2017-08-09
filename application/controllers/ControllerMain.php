@@ -3,9 +3,9 @@
     namespace application\controllers;
 
     use application\core\Controller as Controller;
-    use application\controllers\Controller_About as Controller_About;
+    use application\controllers\ControllerAbout as ControllerAbout;
 
-    class Controller_Main extends Controller
+    class ControllerMain extends Controller
     {
     	public function actionIndex($params = '', $params2 = '')
     	{	
@@ -20,24 +20,24 @@
 
         public static function aboutAction()
         {
-            $tmp = new Controller_About();
+            $tmp = new ControllerAbout();
             $tmp->actionIndex();
         }
 
         public static function bad_Action()
         {
-            $tmp = new Controller_404();
+            $tmp = new Controller404();
             $tmp->actionIndex();
         }
 
     	public static function aboutDetailsAction($about)
 	    {
-            $tmp = new Controller_About();
+            $tmp = new ControllerAbout();
             $tmp->actionIndex($about);
     	} 
     	public static function aboutDetailsAction2($about, $about2)
 	    {
-            $tmp = new Controller_About();
+            $tmp = new ControllerAbout();
             $tmp->actionIndex($about, $about2);
     	} 
     }
