@@ -6,17 +6,6 @@
 > создает экземпляры контролеров страниц и вызывает действия этих контроллеров.
 */
 
-class D_STR
-{
-    public static $preg_str = array();
-}
-
-class U_STR
-{
-    public static $func = null;
-    public static $param = array();
-}
-
 class Route
 {
     private static $list_of_param = Array();
@@ -29,21 +18,17 @@ class Route
 	public static function start()
 	{
         $matches = array();
-        foreach(D_STR::$preg_str as $k => $func)
-        {
+        foreach(DataStr::$preg_str as $k => $func){
             preg_match($k, $_SERVER['REQUEST_URI'], $matches);
-            if (isset($matches) && count($matches))
-            {
-                U_STR::$func = $func;
+            if (isset($matches) && count($matches)){
+                DataUrl::$func = $func;
                 for ($i = 1; $i < count($matches); $i++)
-                    U_STR::$param[] = $matches[$i];
+                    DataUrl::$param[] = $matches[$i];
             }
         }    
-        if (isset(U_STR::$func))
-            call_user_func_array(U_STR::$func, U_STR::$param);
-//    		$action($dataurl->param);
-    	else
-        {
+        if (isset(DataUrl::$func))
+            call_user_func_array(DataUrl::$func, DataUrl::$param);
+    	else{
         	throw new Exception('Отсутствует метод');
 		    exit;
         }    	
