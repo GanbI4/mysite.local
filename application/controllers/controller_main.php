@@ -1,5 +1,10 @@
 <?php
 
+    namespace application\controllers;
+
+    use application\core\Controller as Controller;
+    use application\controllers\Controller_About as Controller_About;
+
     class Controller_Main extends Controller
     {
     	public function actionIndex($params = '', $params2 = '')
@@ -35,5 +40,5 @@
             $tmp = new Controller_About();
             $tmp->actionIndex($about, $about2);
     	} 
-}
+    }
 ?>

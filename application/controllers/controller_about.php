@@ -1,5 +1,11 @@
 <?php
 
+    namespace application\controllers;
+
+    use application\core\Controller as Controller;
+    use application\models\Model_About as Model_About;
+    use application\core\View as View;
+
     class Controller_About extends Controller
     {
 	    function __construct()

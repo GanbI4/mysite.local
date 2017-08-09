@@ -1,5 +1,7 @@
 <?php
 
+    namespace application\core;
+
     trait Singleton 
     {
         private static $instance = null;
@@ -8,7 +10,7 @@
         {
             try 
             {
-                $this->pdo = new PDO('mysql:host=localhost;dbname=testdb;charset=UTF8', 'root', 'wwy7Fv7q');
+                $this->pdo = new \PDO('mysql:host=localhost;dbname=testdb;charset=UTF8', 'root', 'wwy7Fv7q');
             } 
             catch (PDOException $e) 
             {
@@ -39,7 +41,7 @@
             $query = 'SELECT * FROM `contacts` WHERE `user_id` = ?'; 
             $poll = $this->pdo->prepare($query);
             $poll->execute([$id]);
-            return $poll->fetchAll(PDO::FETCH_ASSOC); //получаем контакты по айдишке
+            return $poll->fetchAll(\PDO::FETCH_ASSOC); //получаем контакты по айдишке
         }
     
     }
