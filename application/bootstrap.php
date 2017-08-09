@@ -3,8 +3,6 @@
     use application\core\Router as Router;
     use application\controllers\Controller_Main as Controller_Main;
 
-    require_once 'autoloader.php';
-    
     try
     {
         Router::register('/', function() { 
