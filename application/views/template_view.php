@@ -7,6 +7,7 @@
 	</head>
 	<body>
 <?php if ($params !== '') echo "<h3>$params</h3>"; ?>
+<?php if ($params2 !== '') echo "<h3>$params2</h3>"; ?>
 		<div id="page">
 			<h3>Карцев Михаил</h3>
 			<ul class="list">

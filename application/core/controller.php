@@ -1,16 +1,19 @@
 <?php
 
-class Controller {
+    class Controller 
+    {
 	
-	public static $model;
-	public static $view;
+    	public static $model;
+	    public static $view;
 	
-	public function __construct()
-	{
-		self::$view = new View();
-	}
+    	public function __construct()
+	    {
+		    self::$view = new View();
+    	}
 	
-	// действие (action), вызываемое по умолчанию
-	public function actionIndex($params =''){}
-}
+    	// действие (action), вызываемое по умолчанию
+    	public function actionIndex($params ='', $params2 ='')
+    	{
+    	}
+    }
 ?>

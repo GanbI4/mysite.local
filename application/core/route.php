@@ -6,32 +6,42 @@
 > создает экземпляры контролеров страниц и вызывает действия этих контроллеров.
 */
 
+class D_STR
+{
+    public static $preg_str = array();
+}
+
+class U_STR
+{
+    public static $func = null;
+    public static $param = array();
+}
+
 class Route
 {
     private static $list_of_param = Array();
     
     public static function register($key, $func)
     {
-        self::$list_of_param[] = new DataFromStr($key, $func);
+        D_STR::$preg_str['#^'.str_replace('{%d}', '(\d+)', $key)."$#"] = $func;
     }
     
 	public static function start()
 	{
-			// контроллер и действие по умолчанию
-        $dataurl = new DataFromUrl($_SERVER['REQUEST_URI']);
-
-        foreach (self::$list_of_param as $datastr)
-            if (($datastr->controller == $dataurl->controller_name) && 
-                            ($datastr->is_param == isset($dataurl->param)))
-                if ($datastr->type_param == $dataurl->type_param)
-                    $action = $datastr->action;
-                else{
-        			throw new Exception('Ошибка в параметре!!!');
-		        	exit;
-                }
-
-        if (isset($action))
-    		$action($dataurl->param);
+        $matches = array();
+        foreach(D_STR::$preg_str as $k => $func)
+        {
+            preg_match($k, $_SERVER['REQUEST_URI'], $matches);
+            if (isset($matches) && count($matches))
+            {
+                U_STR::$func = $func;
+                for ($i = 1; $i < count($matches); $i++)
+                    U_STR::$param[] = $matches[$i];
+            }
+        }    
+        if (isset(U_STR::$func))
+            call_user_func_array(U_STR::$func, U_STR::$param);
+//    		$action($dataurl->param);
     	else
         {
         	throw new Exception('Отсутствует метод');

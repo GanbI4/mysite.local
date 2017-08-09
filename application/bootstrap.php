@@ -24,8 +24,8 @@
             controller_main::aboutDetailsAction($news_id); 
         });
 
-        Route::register('/about/such/long/url/with/many/slashes/post/{%d}', function($news_id) { 
-            controller_main::aboutDetailsAction($news_id); 
+        Route::register('/about/{%d}/and/then/another/{%d}', function($about_id, $about_id2) { 
+            controller_main::aboutDetailsAction2($about_id, $about_id2); 
         });
 
         Route::register('/404', function() { 
@@ -34,8 +34,6 @@
 
 
         Route::start();
-
-
     }   
     catch (Exception $e)
     {
