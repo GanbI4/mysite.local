@@ -12,7 +12,7 @@ class Route
     
     public static function register($key, $func)
     {
-        D_STR::$preg_str['#^'.str_replace('{%d}', '(\d+)', $key)."$#"] = $func;
+        DataStr::$preg_str['#^'.str_replace('{%d}', '(\d+)', $key)."$#"] = $func;
     }
     
 	public static function start()
