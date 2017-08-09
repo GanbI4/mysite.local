@@ -11,13 +11,19 @@
 	    function __construct()
 	    {
 		    self::$model = new ModelAbout();
-		    self::$view = new View();
 	    }
 	
-    	function actionIndex($params='', $params2='')
+    	function actionIndex($params = array())
     	{
-    		$data = Controller::$model->get_Data();		
-    		Controller::$view->generate('about_view.php', 'template_view.php', $params, $params2, $data);
+		    self::$view = new View();
+            self::$view->addTemplate("menu", "menu");
+            $arr = array();
+            foreach($params as $i => $v){
+                $arr['params' . ($i+1)] = $v;
+            }
+            $arr['data'] = Controller::$model->get_Data();
+            self::$view->addTemplate("content", "about_view", $arr);
+            self::$view->display();    		    	
     	}
     }
 ?>

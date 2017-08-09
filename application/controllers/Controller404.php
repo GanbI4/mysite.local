@@ -5,9 +5,11 @@
  
     class Controller404 extends Controller
     {
-        function actionIndex($pamams = '', $params2 = '')
+        function actionIndex($pamams = array())
         {
-            Controller::$view->generate('404_view.php', 'template_view.php');
+            self::$view->addTemplate("menu", "menu");
+            self::$view->addTemplate("content", "404_view", $params, $data);
+            self::$view->display();    		    	
         }
     }
 ?>

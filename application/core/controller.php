@@ -10,13 +10,13 @@
     	public static $model;
 	    public static $view;
 	
-    	public function __construct()
+    	public function __construct($layout = DEFAULT_LAYOUT)
 	    {
-		    self::$view = new View();
+//		    self::$view = new View($layout);
     	}
 	
     	// действие (action), вызываемое по умолчанию
-    	public function actionIndex($params ='', $params2 ='')
+    	public function actionIndex($params = array())
     	{
     	}
     }
