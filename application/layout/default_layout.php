@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div id="page">
-			<h3>Карцев Михаил</h3>
+			<h1>Карцев Михаил</h1>
 			    <?= $menu ?>
 		    <div id="content">
 				<div class="box">

@@ -4,18 +4,18 @@
     class View 
     {
         private $layoutdir = 'application/layout';
-        private $defaultlayout = 'application/layout' . '/' . 'default_layout.php';
+        private $defaultlayout = 'application/layout' . '/' . DEFAULT_LAYOUT;
         private $viewdir = 'application/views';
         private $content = array();
     
-        public function __construct ($template = 'DEFAULT_LAYOUT')
+        public function __construct ($template = DEFAULT_LAYOUT)
         {
-            $file = $this->layoutdir . '/' . strtolower($template) . '.php';
+            $file = $this->layoutdir . '/' . strtolower($template);
             if (file_exists($file)) {
                 $this->defaultlayout = $file;
             } 
             else {
-                throw new Exception('Шаблон ' . $template . ' не найден');
+                throw new \Exception('Шаблон ' . $template . ' не найден');
             }
         }
     
@@ -32,8 +32,15 @@
     
         public function display()
         {
-            extract ($this->content);
+            if (!empty($this->content)){
+                extract ($this->content);
+            }
+            else{
+                throw new Exception('Контент отсутствует');
+                exit;
+            }
             include $this->defaultlayout;
+            exit();
         }
     }
 ?>

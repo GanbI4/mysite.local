@@ -1,9 +1,9 @@
-<h1>Мои Контакты</h1>
+<h2>Мои Контакты:</h2>
 <p>
 <table>
-<?php if (isset($params1) && $params1 !== '') echo "<h3>А это параметр из строки: $params1</h3>"; ?>
-<?php if (isset($params2) && $params2 !== '') echo "<h3>А это второй параметр из строки: $params2</h3>"; ?>
-Эти данные взяты из базы данных:
+<?php if (isset($params1) && $params1 !== '') echo "<h4>Это параметр из полученной строки: $params1</h4>"; ?>
+<?php if (isset($params2) && $params2 !== '') echo "<h4>А это второй параметр из строки: $params2</h4>"; ?>
+А эти данные взяты из базы данных:
 <tr><td>Тип контакта</td><td>Значение</td><td>Описание</td></tr>
 <?php
 	foreach($data as $row)

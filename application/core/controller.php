@@ -12,10 +12,8 @@
 	
     	public function __construct($layout = DEFAULT_LAYOUT)
 	    {
-//		    self::$view = new View($layout);
     	}
 	
-    	// действие (action), вызываемое по умолчанию
     	public function actionIndex($params = array())
     	{
     	}

@@ -14,6 +14,8 @@
         public static function start()
         {
             $matches = array();
+echo "попали сюда";
+exit;
             foreach(Classes\DataStr::$preg_str as $k => $func){
                 preg_match($k, $_SERVER['REQUEST_URI'], $matches);
                 if (isset($matches) && count($matches)){
