@@ -16,11 +16,11 @@
 
 
         Router::register('/about/{%d}', function($news_id) { 
-            ControllerMain::aboutDetailsAction($news_id); 
+            ControllerMain::aboutDetailsAction([$news_id]); 
         });
 
         Router::register('/about/{%d}/and/then/another/{%d}', function($about_id, $about_id2) { 
-            ControllerMain::aboutDetailsAction2($about_id, $about_id2); 
+            ControllerMain::aboutDetailsAction([$about_id, $about_id2]); 
         });
 
         Router::register('/404', function() { 

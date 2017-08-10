@@ -38,12 +38,7 @@
     	public static function aboutDetailsAction($about)
 	    {
             $tmp = new ControllerAbout();
-            $tmp->actionIndex([$about]);
-    	} 
-    	public static function aboutDetailsAction2($about, $about2)
-	    {
-            $tmp = new ControllerAbout();
-            $tmp->actionIndex([$about, $about2]);
+            $tmp->actionIndex($about);
     	} 
     }
 ?>
