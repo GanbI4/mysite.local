@@ -19,7 +19,7 @@
             ControllerMain::aboutDetailsAction([$news_id]); 
         });
 
-        Router::register('/about/{%d}/and/then/another/{%d}', function($about_id, $about_id2) { 
+        Router::register('/about/{%d}/and/{%d}', function($about_id, $about_id2) { 
             ControllerMain::aboutDetailsAction([$about_id, $about_id2]); 
         });
 

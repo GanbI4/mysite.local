@@ -8,10 +8,10 @@
 	<body>
 		<div id="page">
 			<h1>Карцев Михаил</h1>
-			    <?= $menu ?>
+			    {$menu}
 		    <div id="content">
 				<div class="box">
-                    <?= $content ?>
+                    {$content}
 				</div>
 				<br />
             </div>

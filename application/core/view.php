@@ -4,15 +4,14 @@
     class View 
     {
         private $layoutdir = 'application/layout';
-        private $defaultlayout = 'application/layout' . '/' . DEFAULT_LAYOUT;
+        private $layout = DEFAULT_LAYOUT;
         private $viewdir = 'application/views';
         private $content = array();
     
         public function __construct ($template = DEFAULT_LAYOUT)
         {
-            $file = $this->layoutdir . '/' . strtolower($template);
-            if (file_exists($file)) {
-                $this->defaultlayout = $file;
+            if (file_exists($this->layoutdir . '/' . strtolower($template))) {
+                $this->layout = $template;
             } 
             else {
                 throw new \Exception('Шаблон ' . $template . ' не найден');
@@ -39,7 +38,8 @@
                 throw new Exception('Контент отсутствует');
                 exit;
             }
-            include $this->defaultlayout;
+            $fenom = new \Fenom(new \Fenom\Provider($this->layoutdir));
+            $fenom->display($this->layout, $this->content);
             exit();
         }
     }
