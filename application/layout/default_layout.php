@@ -11,7 +11,7 @@
 			    {$menu}
 		    <div id="content">
 				<div class="box">
-                    {$content}
+                    {if $content!}{$content}{/if}
 				</div>
 				<br />
             </div>

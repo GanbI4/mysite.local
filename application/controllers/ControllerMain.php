@@ -14,7 +14,6 @@
             Controller::$view->addTemplate("menu", "menu");
             Controller::$view->addTemplate("content", "main_view", $params);
             Controller::$view->display();    		    	
-
     	}
 	
         public static function indexAction()

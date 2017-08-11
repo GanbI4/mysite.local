@@ -1,15 +1,19 @@
 <h2>Мои Контакты:</h2>
 <p>
 <table>
-<?php if (isset($params1) && $params1 !== '') echo "<h4>Это параметр из полученной строки: $params1</h4>"; ?>
-<?php if (isset($params2) && $params2 !== '') echo "<h4>А это второй параметр из строки: $params2</h4>"; ?>
+{if $params1!}<h4>Это первый параметр: {$params1}</h4>{/if}
+{if $params2!}<h4>Это второй параметр: {$params2}</h4>{/if}
 А эти данные взяты из базы данных:
 <tr><td>Тип контакта</td><td>Значение</td><td>Описание</td></tr>
-<?php
-	foreach($data as $row)
-	{
-		echo '<tr><td>'.$row['type_contacts'].'</td><td>'.$row['value'].'</td><td>'.$row['Description'].'</td></tr>';
-	}
-?>
+
+	{foreach $data as $row}
+	
+		<tr>
+		    <td>{$row['type_contacts']}</td>
+		    <td>{$row['value']}</td>
+		    <td>{$row['Description']}</td>
+		</tr>
+	{/foreach}
+
 </table>
 </p>

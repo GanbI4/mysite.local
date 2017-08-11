@@ -18,15 +18,11 @@
             }
         }
     
-        public function addTemplate($section, $template, $param = null)
+        public function addTemplate($section, $template, $param = array())
         {
-            ob_start();
-            if (isset($param) && !empty($param)){
-                extract($param);
-            }    
-            include $this->viewdir . '/' . $template . '.php'; 
-            $this->content += [$section => ob_get_contents()];
-            ob_end_clean();
+            $fenom = new \Fenom(new \Fenom\Provider($this->viewdir));
+            $fenom->setOptions(\Fenom::AUTO_RELOAD);
+            $this->content += [$section => $fenom->fetch($template.'.php', $param)];
         }
     
         public function display()
@@ -35,10 +31,11 @@
                 extract ($this->content);
             }
             else{
-                throw new Exception('Контент отсутствует');
+                throw new \Exception('Контент отсутствует');
                 exit;
             }
             $fenom = new \Fenom(new \Fenom\Provider($this->layoutdir));
+            $fenom->setOptions(\Fenom::AUTO_RELOAD);
             $fenom->display($this->layout, $this->content);
             exit();
         }
